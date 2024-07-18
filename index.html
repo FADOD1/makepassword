@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Senha</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(50, 50, 50, 0.8);
+      border-radius: 10px;
+      width: 300px;
+      height: 300px; /* Ajusta a altura do container */
+    }
+
+    input[type="number"], button {
+      margin: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ccc;
+      color: black;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    #newPassword {
+      font-size: 18px;
+      margin-top: 10px; /* Espaço entre o botão e a senha gerada */
+      color: white; /* Cor da senha gerada */
+    }
+
+    #languageSelector {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .language-selector select:focus {
+  outline: none;
+  border-color: #ccc; /* Altere para a cor desejada */
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="pageTitle">Gerador de Senha</h1>
+
+    <label for="pass" id="passLabel">Password length:</label>
+    <input type="number" id="pass" min="0" max="20">
+    <button id="generateButton">Generate Password</button>
+
+    <div>
+      <span id="newPassword"></span>
+    </div>
+
+    <!-- Selector de idioma -->
+    <select id="languageSelector">
+      <option value="en">English</option>
+      <option value="pt-br">Português (Brasil)</option>
+    </select>
+  </div>
+
+  <script src="./src/script.js"></script>
+  <script>
+    // Função para atualizar o conteúdo da página com base no idioma selecionado
+    function updateLanguage(language) {
+      const translations = {
+        'en': {
+          pageTitle: 'Password Generator',
+          passLabel: 'Password length:',
+          generateButton: 'Generate Password'
+        },
+        'pt-br': {
+          pageTitle: 'Gerador de Senha',
+          passLabel: 'Qual tamanho da senha?',
+          generateButton: 'Gerar senha'
+        }
+      };
+
+      document.getElementById('pageTitle').textContent = translations[language].pageTitle;
+      document.getElementById('passLabel').textContent = translations[language].passLabel;
+      document.getElementById('generateButton').textContent = translations[language].generateButton;
+    }
+
+    // Carregar o idioma padrão (inglês) ao carregar a página
+    updateLanguage('en');
+
+    // Event listener para alterar o idioma quando o seletor mudar
+    document.getElementById('languageSelector').addEventListener('change', function() {
+      const selectedLanguage = this.value;
+      updateLanguage(selectedLanguage);
+    });
+
+    // Event listener para gerar senha quando o botão for clicado
+    document.getElementById('generateButton').addEventListener('click', function() {
+      const passwordLength = document.getElementById('pass').value;
+      const newPassword = generatePassword(passwordLength);
+      document.getElementById('newPassword').textContent = newPassword;
+    });
+  </script>
+</body>
+</html>

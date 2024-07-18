@@ -1,0 +1,34 @@
+{
+  "name": "makepassword",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron .",
+    "package-win": "electron-builder -w",
+    "package-linux": "electron-builder -l",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "FADOD",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "electron": "^31.2.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.bygaules.makepass",
+    "win": {
+      "icon": "app/icon.png"
+    },
+    "linux": {
+      "icon": "app/icon.png"
+    },
+    "mac": {
+      "icon": "app/icon.png"
+    }
+  },
+  "dependencies": {
+    "i18next": "^23.12.1"
+  }
+}
