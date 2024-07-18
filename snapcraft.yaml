@@ -1,0 +1,19 @@
+name: makepassword
+version: '1.0.0'
+summary: Um gerador de senhas usando Electron
+description: |
+  Um aplicativo para gerar senhas aleatórias de forma segura utilizando Electron.
+
+grade: stable
+confinement: strict
+
+apps:
+  makepassword:
+    command: makepassword
+
+parts:
+  makepassword:
+    plugin: electron
+    source: .
+    stage-packages:
+      - libnss3
