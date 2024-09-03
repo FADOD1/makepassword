@@ -9,4 +9,8 @@ um projeto simples , mas util , sem erros , senhas totalmente aleatorias. E o me
 
 O APLICATIVO ESTA DISPONIVEL APENAS PARA LINUX ATUALMENTE E ESTÁ EM BETA!
 
-          
+**DOWNLOAD DO .SNAP**
+
+https://www.mediafire.com/file/6wvwss3t0oi4tpf/makepassword_1.0.0_amd64.snap/file     
+
+Baixe-o e use o processo de intalação padrão para .snap
